@@ -1,0 +1,8 @@
+# Install a hardware-compatible build first; +cuXXX local builds satisfy this pin.
+torch==2.10.0
+# Install a hardware-compatible PyTorch separately; tested version is recorded in evidence.
+numpy==2.3.5
+tokenizers==0.22.1
+PyYAML==6.0.3
+matplotlib==3.10.7
+pytest==8.4.2
