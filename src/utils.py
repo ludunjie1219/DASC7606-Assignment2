@@ -10,7 +10,7 @@ import yaml
 
 from .model import GPT, GPTConfig
 
-VERSION = "assignment2-rc1"
+VERSION = "assignment2-v0.1.0"
 
 
 def sha256(path):

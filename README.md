@@ -1,14 +1,27 @@
 # DASC7606 Assignment 2: MiniGPT
 
-**Public preview based on rc1 - teaching-team review, not the official course release.**
-The deadline, final marking scheme and final experimental requirements will be
-announced on Moodle after approval. This package does not set those policies.
+**v0.1.0: code and data release. Course policies are pending.**
+You can download the materials and start setup and implementation. The deadline,
+final marking scheme, final experimental requirements, collaboration/AI policy
+and submission arrangements will be announced on Moodle after confirmation.
+This release does not set those policies or open a submission portal.
 
 This repository contains only student starter code, public tests and utilities.
-The fixed data bundle and approved assignment handout are not hosted here yet;
-their distribution details will be added when confirmed. No teacher solutions,
+The fixed data bundle is available from the versioned release below. The approved
+assignment handout will follow separately. No teacher solutions,
 reference weights, hidden evaluation data or private grading materials are included.
-Do not use this preview as a deadline or submission announcement.
+Do not interpret this materials release as a deadline or submission announcement.
+
+## Downloads (v0.1.0)
+
+- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v0.1.0/assignment2-starter-v0.1.0.zip)
+- [Fixed data ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v0.1.0/assignment2-data-v0.1.0.zip)
+- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v0.1.0/SHA256SUMS.txt)
+- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v0.1.0)
+
+Use both ZIP files from this version. The GitHub-generated source archives do not
+include the data bundle. If using Git instead, check out tag `v0.1.0` and download
+the data ZIP separately.
 
 ## What you will do
 
@@ -49,11 +62,22 @@ CUDA baseline uses BF16; GPUs without BF16 need a separately checked configurati
 
 ## 2. Obtain and verify the fixed data
 
-The required fixed bundle is `assignment2-data-rc1.zip`; its distribution location
-is pending confirmation. Training and data-dependent checks cannot run without it.
-Once available, extract it at the root of this cloned repository (or inside
-`assignment2-starter-rc1/` if using the starter ZIP). It contains one top-level
-`data/` directory:
+Download the two ZIP files and `SHA256SUMS.txt` linked above into one directory.
+Verify both downloads before extracting them:
+
+```sh
+# Linux:
+sha256sum -c SHA256SUMS.txt
+# macOS alternative:
+shasum -a 256 -c SHA256SUMS.txt
+
+unzip assignment2-starter-v0.1.0.zip
+cd assignment2-starter-v0.1.0
+unzip ../assignment2-data-v0.1.0.zip
+```
+
+If using a clone instead, extract the data ZIP at the root of that repository.
+It contains one top-level `data/` directory:
 
 ```text
 data/
@@ -169,7 +193,7 @@ student-ID.zip
 
 Do not submit data, virtual environments, caches, `last.pt` or other checkpoints.
 The checker has a 200 MiB uncompressed package limit and 150 MiB checkpoint limit;
-the Moodle upload limit is separate and will be confirmed before release.
+the Moodle upload limit is separate and will be confirmed before submissions open.
 The format checker does not award a grade, verify your report's quality, prove
 training provenance or replace the hidden correctness tests. The TA evaluator
 must use trusted code and an isolated execution environment.
