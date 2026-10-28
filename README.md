@@ -1,26 +1,36 @@
 # DASC7606 Assignment 2: MiniGPT
 
-**v0.1.0: code and data release. Course policies are pending.**
-You can download the materials and start setup and implementation. The deadline,
-final marking scheme, final experimental requirements, collaboration/AI policy
-and submission arrangements will be announced on Moodle after confirmation.
-This release does not set those policies or open a submission portal.
+**Assignment released 29 October 2026. Due Sunday, 22 November 2026,
+23:59 Hong Kong time (UTC+8).**
+
+Submit one checked ZIP (maximum 100 MB) through your course's Moodle assignment.
+There is one final submission attempt: saving a draft is not submitting it.
+Check all files before clicking **Submit assignment**.
+
+The marking split follows Assignment 1: **code and model performance 80 marks;
+report and reproducibility 20 marks**. Code/model assessment covers correctness,
+the baseline and controlled runs, reproducible training evidence, and performance
+on unseen text. The report must explain methods, comparisons, curves, generations
+and limitations in at most two pages.
+
+Late penalty: up to 1 day 10%; up to 2 days 20%; up to 7 days 50%; more than
+7 days 100%. Late submissions close on 29 November 2026 at 23:59 HKT.
+Consult Moodle and the released assignment slides for the authoritative handout.
 
 This repository contains only student starter code, public tests and utilities.
-The fixed data bundle is available from the versioned release below. The approved
-assignment handout will follow separately. No teacher solutions,
+The fixed data bundle is available from the versioned release below. No teacher solutions,
 reference weights, hidden evaluation data or private grading materials are included.
-Do not interpret this materials release as a deadline or submission announcement.
 
-## Downloads (v0.1.0)
+## Downloads (v1.0.0)
 
-- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v0.1.0/assignment2-starter-v0.1.0.zip)
-- [Fixed data ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v0.1.0/assignment2-data-v0.1.0.zip)
-- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v0.1.0/SHA256SUMS.txt)
-- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v0.1.0)
+- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/assignment2-starter-v1.0.0.zip)
+- [Fixed data ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/assignment2-data-v1.0.0.zip)
+- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/SHA256SUMS.txt)
+- [Assignment slides](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/DASC7606_Assignment_2.pdf)
+- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v1.0.0)
 
 Use both ZIP files from this version. The GitHub-generated source archives do not
-include the data bundle. If using Git instead, check out tag `v0.1.0` and download
+include the data bundle. If using Git instead, check out tag `v1.0.0` and download
 the data ZIP separately.
 
 ## What you will do
@@ -71,9 +81,9 @@ sha256sum -c SHA256SUMS.txt
 # macOS alternative:
 shasum -a 256 -c SHA256SUMS.txt
 
-unzip assignment2-starter-v0.1.0.zip
-cd assignment2-starter-v0.1.0
-unzip ../assignment2-data-v0.1.0.zip
+unzip assignment2-starter-v1.0.0.zip
+cd assignment2-starter-v1.0.0
+unzip ../assignment2-data-v1.0.0.zip
 ```
 
 If using a clone instead, extract the data ZIP at the root of that repository.
@@ -146,21 +156,20 @@ For CPU use, append `--device cpu` to sample/evaluate. The trainer reports sampl
 mixed-precision validation loss; standalone evaluation above uses float32 over the
 complete public split. Label these different protocols correctly in your report.
 
-## 5. Controlled experiments (draft scope)
+## 5. Controlled experiments
 
-The current draft asks for a baseline, one model-side experiment and one
+Complete a baseline, one model-side experiment and one
 optimization-side experiment, each with the same processed-token budget. Copy the
 baseline YAML and change one factor at a time. Keep vocabulary and context fixed;
 stay within the 20M-parameter loader limit and the supported architecture family.
 Record a hypothesis before running, compare validation results and fixed-prompt
-continuations, and discuss failures. Extra experiments are optional until the
-teaching team confirms the final assignment requirements.
+continuations, and discuss failures. Extra experiments are optional.
 
 Train each config into its own directory, then run plotting, sampling and public
 evaluation as above. Select your final checkpoint using public validation only.
 Do not treat grammatical sentences as proof of narrative consistency.
 
-## 6. Prepare a submission (draft schema)
+## 6. Prepare a submission
 
 Create `report.pdf` (up to two pages): implementation/method, controlled experiment
 table and analysis, curves, representative continuations, limitations and
@@ -193,7 +202,9 @@ student-ID.zip
 
 Do not submit data, virtual environments, caches, `last.pt` or other checkpoints.
 The checker has a 200 MiB uncompressed package limit and 150 MiB checkpoint limit;
-the Moodle upload limit is separate and will be confirmed before submissions open.
+the separate Moodle limit is **100 MB for the final compressed ZIP**. Check its
+file size before uploading. Keep only the selected checkpoint; reduce oversized
+report images rather than removing required run evidence.
 The format checker does not award a grade, verify your report's quality, prove
 training provenance or replace the hidden correctness tests. The TA evaluator
 must use trusted code and an isolated execution environment.

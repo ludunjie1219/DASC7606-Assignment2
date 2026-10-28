@@ -25,7 +25,7 @@ def main():
     runs = {role: getattr(args, role) for role in ROLES}
     checkpoint = runs[args.select] / "best.pt"
     manifest = {"format_version": 1, "student_id": args.student_id, "selected_run": args.select,
-                "checkpoint_sha256": sha256(checkpoint), "starter_version": "assignment2-v0.1.0"}
+                "checkpoint_sha256": sha256(checkpoint), "starter_version": "assignment2-v1.0.0"}
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(partial, "w", compression=zipfile.ZIP_DEFLATED) as z:
         def add(source, destination):
