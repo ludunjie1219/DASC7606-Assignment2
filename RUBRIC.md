@@ -41,11 +41,26 @@ positional-encoding changes, or a justified combination supported by ablations.
 These are examples, not a required list or a requirement to implement a full
 large-scale system. One well-investigated idea is sufficient.
 
-There are no newly imposed CE/PPL threshold bands in this update. Use the same
-evaluation protocol for comparisons, and distinguish sampled mixed-precision
-trainer loss from full-split float32 evaluation. Model quality is assessed with
-the implementation, training and experiment evidence, not an unexplained loss
-number in isolation.
+**There are no fixed loss, cross-entropy (CE) or perplexity (PPL) thresholds for
+grading, and these metrics are not converted into mark bands.** Assessment
+focuses on implementation correctness, completion and reproducibility of the
+required work, and the quality of the experimental design, evidence and analysis.
+Report loss/PPL and representative generations to support your comparisons and
+discussion. A lower loss alone does not guarantee a higher mark, and a particular
+public-validation score does not guarantee or cap a grade. Strong, well-supported
+analysis of a negative result can earn full marks for the relevant criterion.
+
+Use the same evaluation protocol for comparisons, and distinguish sampled
+mixed-precision trainer loss from full-split float32 evaluation. There is no
+required numerical target that students must reach to qualify for marks.
+
+## Colab T4 and BF16 clarification
+
+Native hardware BF16 support is not required for grading. Completed Colab
+T4/BF16 runs are accepted when they meet the stated configuration, data,
+token-budget and evidence requirements. **No rerun on another GPU is required.**
+Record the actual hardware, software and precision accurately. This does not
+remove the normal implementation and experiment checks or change the baseline.
 
 ## Already started or submitted?
 

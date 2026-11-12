@@ -3,10 +3,15 @@
 **Assignment released 29 October 2026. Due Sunday, 22 November 2026,
 23:59 Hong Kong time (UTC+8).**
 
-**Updated 13 November 2026 (v1.1.0).** Four core parts are worth **20 marks each**:
+**Updated 13 November 2026 (v1.1.1).** Four core parts are worth **20 marks each**:
 implementation, training/inference, controlled experiments, and report writing.
 An additional **20 marks for extension/exploration** are available within Part 3.
 The assignment total is **100, not 120**. See [the full rubric and update notice](RUBRIC.md).
+
+**Clarification:** completed Colab T4/BF16 runs that meet the assignment
+requirements are accepted without rerunning on another GPU. There are **no fixed
+loss, cross-entropy or perplexity thresholds for grades**. Assessment focuses on
+implementation correctness and the quality of the experiments and analysis.
 
 Submit your checked core ZIP (`STUDENT_ID.zip`) and, if attempting the extension,
 a separate `STUDENT_ID_extension.zip`. Each file must be at most 100 MB.
@@ -27,16 +32,16 @@ This repository contains only student starter code, public tests and utilities.
 The fixed data bundle is available from the versioned release below. No teacher solutions,
 reference weights, hidden evaluation data or private grading materials are included.
 
-## Downloads (v1.1.0; fixed data unchanged)
+## Downloads (v1.1.1; fixed data unchanged)
 
-- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.0/assignment2-starter-v1.1.0.zip)
+- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.1/assignment2-starter-v1.1.1.zip)
 - [Fixed data ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/assignment2-data-v1.0.0.zip)
-- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.0/SHA256SUMS.txt)
-- [Updated assignment slides](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.0/DASC7606_Assignment_2_v1.1.0.pdf)
-- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v1.1.0)
+- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.1/SHA256SUMS.txt)
+- [Updated assignment slides](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.1/DASC7606_Assignment_2_v1.1.1.pdf)
+- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v1.1.1)
 
-Use the v1.1.0 starter with the unchanged v1.0.0 data ZIP. The GitHub-generated
-source archives do not include data. If using Git, check out tag `v1.1.0` and
+Use the v1.1.1 starter with the unchanged v1.0.0 data ZIP. The GitHub-generated
+source archives do not include data. If using Git, check out tag `v1.1.1` and
 download the data ZIP separately. Do not overwrite your completed `src/model.py`
 with the starter: existing v1.0.0 training code and core ZIPs remain accepted.
 
@@ -76,7 +81,15 @@ python -m pip install -r requirements.txt
 
 Environment installation may require Internet access. The training workflow does
 not. The launch scripts do not install packages or allocate a server for you.
-CUDA baseline uses BF16; GPUs without BF16 need a separately checked configuration.
+CUDA baseline uses BF16. **Native hardware BF16 support is not a grading
+requirement. Colab T4/BF16 runs are accepted** when the released trainer works
+with the required baseline configuration, fixed data/tokenizer and token budget,
+and the actual environment and run evidence are recorded accurately. If you
+already completed such runs, **you do not need to rerun them on another GPU**.
+Public tests and format checks remain useful checks, not guarantees of a grade.
+This clarification does not waive implementation or experiment requirements or
+authorize changing the baseline configuration. If the trainer cannot execute
+BF16 in your environment, contact the TA before changing its precision setting.
 
 ## 2. Obtain and verify the fixed data
 
@@ -89,8 +102,8 @@ sha256sum -c SHA256SUMS.txt
 # macOS alternative:
 shasum -a 256 -c SHA256SUMS.txt
 
-unzip assignment2-starter-v1.1.0.zip
-cd assignment2-starter-v1.1.0
+unzip assignment2-starter-v1.1.1.zip
+cd assignment2-starter-v1.1.1
 unzip ../assignment2-data-v1.0.0.zip
 ```
 
