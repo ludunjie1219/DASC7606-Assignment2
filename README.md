@@ -3,15 +3,21 @@
 **Assignment released 29 October 2026. Due Sunday, 22 November 2026,
 23:59 Hong Kong time (UTC+8).**
 
-Submit one checked ZIP (maximum 100 MB) through your course's Moodle assignment.
-There is one final submission attempt: saving a draft is not submitting it.
-Check all files before clicking **Submit assignment**.
+**Updated 13 November 2026 (v1.1.0).** Four core parts are worth **20 marks each**:
+implementation, training/inference, controlled experiments, and report writing.
+An additional **20 marks for extension/exploration** are available within Part 3.
+The assignment total is **100, not 120**. See [the full rubric and update notice](RUBRIC.md).
 
-The marking split follows Assignment 1: **code and model performance 80 marks;
-report and reproducibility 20 marks**. Code/model assessment covers correctness,
-the baseline and controlled runs, reproducible training evidence, and performance
-on unseen text. The report must explain methods, comparisons, curves, generations
-and limitations in at most two pages.
+Submit your checked core ZIP (`STUDENT_ID.zip`) and, if attempting the extension,
+a separate `STUDENT_ID_extension.zip`. Each file must be at most 100 MB.
+The core report remains at most two pages; put extension analysis in a separate
+`extension_report.pdf`. Already completed compliant core runs remain valid: this
+update does not require retraining or repackaging a valid core submission.
+
+Revision/resubmission before the deadline is permitted, including for students
+who have already submitted. If Moodle has locked your submitted attempt, contact
+the TA to reopen it. A saved draft is not a final submission: verify **Submitted
+for grading** after your final upload. Keep your core ZIP when adding the extension.
 
 Late penalty: up to 1 day 10%; up to 2 days 20%; up to 7 days 50%; more than
 7 days 100%. Late submissions close on 29 November 2026 at 23:59 HKT.
@@ -21,17 +27,18 @@ This repository contains only student starter code, public tests and utilities.
 The fixed data bundle is available from the versioned release below. No teacher solutions,
 reference weights, hidden evaluation data or private grading materials are included.
 
-## Downloads (v1.0.0)
+## Downloads (v1.1.0; fixed data unchanged)
 
-- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/assignment2-starter-v1.0.0.zip)
+- [Starter code ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.0/assignment2-starter-v1.1.0.zip)
 - [Fixed data ZIP](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/assignment2-data-v1.0.0.zip)
-- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/SHA256SUMS.txt)
-- [Assignment slides](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.0.0/DASC7606_Assignment_2.pdf)
-- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v1.0.0)
+- [SHA-256 checksums](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.0/SHA256SUMS.txt)
+- [Updated assignment slides](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/download/v1.1.0/DASC7606_Assignment_2_v1.1.0.pdf)
+- [Release notes](https://github.com/ludunjie1219/DASC7606-Assignment2/releases/tag/v1.1.0)
 
-Use both ZIP files from this version. The GitHub-generated source archives do not
-include the data bundle. If using Git instead, check out tag `v1.0.0` and download
-the data ZIP separately.
+Use the v1.1.0 starter with the unchanged v1.0.0 data ZIP. The GitHub-generated
+source archives do not include data. If using Git, check out tag `v1.1.0` and
+download the data ZIP separately. Do not overwrite your completed `src/model.py`
+with the starter: existing v1.0.0 training code and core ZIPs remain accepted.
 
 ## What you will do
 
@@ -49,7 +56,8 @@ format and data pipeline are complete. Do not replace attention with a built-in
 complete attention module or use a complete pretrained model. Preserve public
 class/method signatures and checkpoint key names. The current evaluator supports
 this GPT architecture family with configurable depth, width and head count, not
-arbitrary architectures; discuss changes outside that family with the TA first.
+arbitrary architectures. Novel architectures belong in the separate extension
+package, not the core checkpoint. See [EXTENSION.md](EXTENSION.md).
 
 ## 1. Environment
 
@@ -81,8 +89,8 @@ sha256sum -c SHA256SUMS.txt
 # macOS alternative:
 shasum -a 256 -c SHA256SUMS.txt
 
-unzip assignment2-starter-v1.0.0.zip
-cd assignment2-starter-v1.0.0
+unzip assignment2-starter-v1.1.0.zip
+cd assignment2-starter-v1.1.0
 unzip ../assignment2-data-v1.0.0.zip
 ```
 
@@ -162,8 +170,11 @@ Complete a baseline, one model-side experiment and one
 optimization-side experiment, each with the same processed-token budget. Copy the
 baseline YAML and change one factor at a time. Keep vocabulary and context fixed;
 stay within the 20M-parameter loader limit and the supported architecture family.
-Record a hypothesis before running, compare validation results and fixed-prompt
-continuations, and discuss failures. Extra experiments are optional.
+Each required experiment changes one factor relative to the original baseline,
+not relative to the other experiment. Record a hypothesis, compare validation
+results and fixed-prompt continuations, and discuss failures. Additional runs,
+combined changes and recent methods may be explored for the extension marks;
+there is no maximum number of experiments. Quality matters more than quantity.
 
 Train each config into its own directory, then run plotting, sampling and public
 evaluation as above. Select your final checkpoint using public validation only.
